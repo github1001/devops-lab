@@ -1,0 +1,9 @@
+services:
+  sample-app-prod:
+    build: .
+    container_name: sample-app-prod
+    environment:
+      APP_ENV: prod
+      PORT: 3000
+    ports:
+      - "3003:3000"
