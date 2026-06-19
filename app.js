@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   res.json({
     message: "Hello from DevOps Lab",
     environment: env,
-    version: "1.0.1"
+    version: "1.0.2"
   });
 });
 
