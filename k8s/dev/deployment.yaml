@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: sample-app-dev
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: sample-app-dev
+
+  template:
+    metadata:
+      labels:
+        app: sample-app-dev
+
+    spec:
+      containers:
+      - name: sample-app-dev
+        image: node:20-alpine
+
+        command:
+        - sh
+        - -c
+
+        args:
+        - |
+          apk add --no-cache git npm
+          git clone https://github.com/github1001/devops-lab.git /app
+          cd /app
+          git checkout dev
+          npm install
+          npm start
+
+        ports:
+        - containerPort: 3000
