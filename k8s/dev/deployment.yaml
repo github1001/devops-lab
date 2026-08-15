@@ -18,28 +18,16 @@ spec:
         app: sample-app-dev
 
     spec:
-      containers:
-      - name: sample-app-dev
-        image: node:20-alpine
+     containers:
+     - name: sample-app-dev
+       image: ghcr.io/github1001/devops-lab:dev
+       imagePullPolicy: Always
 
-        envFrom:
-          - configMapRef:
-               name: sample-app-config
-          - secretRef:
-               name: sample-app-secret       
+       envFrom:
+       - configMapRef:
+           name: sample-app-config
+       - secretRef:
+            name: sample-app-secret
 
-        command:
-        - sh
-        - -c
-
-        args:
-        - |
-          apk add --no-cache git npm
-          git clone https://github.com/github1001/devops-lab.git /app
-          cd /app
-          git checkout dev
-          npm install
-          npm start
-
-        ports:
-        - containerPort: 3000
+       ports:
+       - containerPort: 3000
