@@ -1,0 +1,14 @@
+nameOverride: sample-app-prod
+
+image:
+  tag: prod
+
+service:
+  nodePort: 31013
+
+ingress:
+  host: app.sample-app.local
+  tlsSecret: sample-app-tls
+
+config:
+  appEnv: prod

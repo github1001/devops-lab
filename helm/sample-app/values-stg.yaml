@@ -1,0 +1,14 @@
+nameOverride: sample-app-stg
+
+image:
+  tag: stg
+
+service:
+  nodePort: 31012
+
+ingress:
+  host: stg.sample-app.local
+  tlsSecret: sample-app-tls
+
+config:
+  appEnv: stg

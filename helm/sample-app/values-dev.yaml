@@ -1,0 +1,14 @@
+nameOverride: sample-app-dev
+
+image:
+  tag: dev
+
+service:
+  nodePort: 31011
+
+ingress:
+  host: dev.sample-app.local
+  tlsSecret: sample-app-tls
+
+config:
+  appEnv: dev

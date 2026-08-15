@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Values.nameOverride }}
+  namespace: {{ .Release.Namespace }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+
+  selector:
+    matchLabels:
+      app: {{ .Values.nameOverride }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.nameOverride }}
+
+    spec:
+      containers:
+      - name: {{ .Values.nameOverride }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+
+        envFrom:
+        - configMapRef:
+            name: sample-app-config
+        - secretRef:
+            name: {{ .Values.secret.name }}
+
+        ports:
+        - containerPort: 3000
