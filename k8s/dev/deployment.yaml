@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: sample-app-dev
+  namespace: dev  
 
 spec:
   replicas: 1
