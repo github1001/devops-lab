@@ -2,24 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: sample-app-dev
-  namespace: dev  
+  name: sample-app-stg
+  namespace: stg  
 
 spec:
   replicas: 1
 
   selector:
     matchLabels:
-      app: sample-app-dev
+      app: sample-app-stg
 
   template:
     metadata:
       labels:
-        app: sample-app-dev
+        app: sample-app-stg
 
     spec:
       containers:
-      - name: sample-app-dev
+      - name: sample-app-stg
         image: node:20-alpine
 
         envFrom:
@@ -37,7 +37,7 @@ spec:
           apk add --no-cache git npm
           git clone https://github.com/github1001/devops-lab.git /app
           cd /app
-          git checkout dev
+          git checkout stg
           npm install
           npm start
 
