@@ -22,6 +22,10 @@ spec:
       - name: sample-app-dev
         image: node:20-alpine
 
+        envFrom:
+          - configMapRef:
+               name: sample-app-config 
+
         command:
         - sh
         - -c
