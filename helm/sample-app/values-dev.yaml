@@ -2,7 +2,7 @@ replicaCount: 1
 nameOverride: sample-app-dev
 
 image:
-  tag: dev
+  tag: 3b128c0bfa5b6e1502abc9a7ef5a6ea502fe9460
 
 service:
   nodePort: 31011
